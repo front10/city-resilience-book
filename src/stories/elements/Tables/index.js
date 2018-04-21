@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import 'semantic-ui/dist/semantic.css';
+import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import { Header, Button, Icon, Image, Rating, Divider, Checkbox, Table } from 'semantic-ui-react';
 
 import lenaImageFile from '../../../../assets/images/avatar/small/lena.png';
@@ -88,11 +88,11 @@ const TableExamplePadded = () => (
           <Rating icon="star" defaultRating={3} maxRating={3} />
         </Table.Cell>
         <Table.Cell textAlign="right">
-            80% <br />
+          80% <br />
           <a href="#">18 studies</a>
         </Table.Cell>
         <Table.Cell>
-            Creatine supplementation is the reference compound.
+          Creatine supplementation is the reference compound.
         </Table.Cell>
       </Table.Row>
       <Table.Row>
@@ -104,11 +104,11 @@ const TableExamplePadded = () => (
           <Rating icon="star" defaultRating={3} maxRating={3} />
         </Table.Cell>
         <Table.Cell textAlign="right">
-            100% <br />
+          100% <br />
           <a href="#">65 studies</a>
         </Table.Cell>
         <Table.Cell>
-            Creatine is the reference compound for power improvement.
+          Creatine is the reference compound for power improvement.
         </Table.Cell>
       </Table.Row>
     </Table.Body>
@@ -130,13 +130,13 @@ const TableExampleCollapsing = () => (
           <Header as="h4" image>
             <Image src={lenaImageFile} rounded size="mini" />
             <Header.Content>
-                Lena
+              Lena
               <Header.Subheader>Human Resources</Header.Subheader>
             </Header.Content>
           </Header>
         </Table.Cell>
         <Table.Cell>
-            22
+          22
         </Table.Cell>
       </Table.Row>
       <Table.Row>
@@ -144,13 +144,13 @@ const TableExampleCollapsing = () => (
           <Header as="h4" image>
             <Image src={matthewImageFile} rounded size="mini" />
             <Header.Content>
-                Matthew
+              Matthew
               <Header.Subheader>Fabric Design</Header.Subheader>
             </Header.Content>
           </Header>
         </Table.Cell>
         <Table.Cell>
-            15
+          15
         </Table.Cell>
       </Table.Row>
       <Table.Row>
@@ -158,13 +158,13 @@ const TableExampleCollapsing = () => (
           <Header as="h4" image>
             <Image src={lindsayImageFile} rounded size="mini" />
             <Header.Content>
-                Lindsay
+              Lindsay
               <Header.Subheader>Entertainment</Header.Subheader>
             </Header.Content>
           </Header>
         </Table.Cell>
         <Table.Cell>
-            12
+          12
         </Table.Cell>
       </Table.Row>
       <Table.Row>
@@ -172,13 +172,13 @@ const TableExampleCollapsing = () => (
           <Header as="h4" image>
             <Image src={markImageFile} rounded size="mini" />
             <Header.Content>
-                Mark
+              Mark
               <Header.Subheader>Executive</Header.Subheader>
             </Header.Content>
           </Header>
         </Table.Cell>
         <Table.Cell>
-            11
+          11
         </Table.Cell>
       </Table.Row>
     </Table.Body>
@@ -205,7 +205,7 @@ const TableExamplePositiveNegative = () => (
         <Table.Cell>Jimmy</Table.Cell>
         <Table.Cell>
           <Icon name="checkmark" />
-            Approved
+          Approved
         </Table.Cell>
         <Table.Cell>None</Table.Cell>
       </Table.Row>
@@ -214,7 +214,7 @@ const TableExamplePositiveNegative = () => (
         <Table.Cell>Unknown</Table.Cell>
         <Table.Cell positive>
           <Icon name="close" />
-            Requires call
+          Requires call
         </Table.Cell>
       </Table.Row>
       <Table.Row negative>
@@ -228,17 +228,19 @@ const TableExamplePositiveNegative = () => (
 
 storiesOf('Elements/Tables', module).add('All', () => {
   return (
-    <div>
-      <Header as="h1">Tables</Header>
-      <Divider />
-      <Header as="h3">Padded</Header>
-      <TableExamplePadded />
-      <Header as="h3">Full-Width Header / Footer</Header>
-      <TableExampleFullWidth />
-      <Header as="h3">Positive Negative</Header>
-      <TableExamplePositiveNegative />
-      <Header as="h3">Collapsing</Header>
-      <TableExampleCollapsing />
-    </div>
+    <ThemeSelector>
+      <div>
+        <Header as="h1">Tables</Header>
+        <Divider />
+        <Header as="h3">Padded</Header>
+        <TableExamplePadded />
+        <Header as="h3">Full-Width Header / Footer</Header>
+        <TableExampleFullWidth />
+        <Header as="h3">Positive Negative</Header>
+        <TableExamplePositiveNegative />
+        <Header as="h3">Collapsing</Header>
+        <TableExampleCollapsing />
+      </div>
+    </ThemeSelector>
   );
 });

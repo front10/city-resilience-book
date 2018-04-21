@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import 'semantic-ui/dist/semantic.css';
+import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import { Header, Divider, Icon, Label, Form, Menu, Grid, Image, Segment } from 'semantic-ui-react';
 
 import imageFile from '../../../../assets/images/wireframe/paragraph.png';
@@ -94,19 +94,21 @@ const LabelExampleRibbon = () => (
 
 storiesOf('Elements/Labels', module).add('All', () => {
   return (
-    <div>
-      <Header as="h1">Labels</Header>
-      <Divider />
-      <Header as="h4">Tag</Header>
-      <LabelExampleTag />
-      <Header as="h4">Tag group</Header>
-      <LabelExampleGroupTag />
-      <Header as="h4">Pointing</Header>
-      <LabelExamplePointing />
-      <Header as="h4">Floating</Header>
-      <LabelExampleFloating />
-      <Header as="h4">Ribbon</Header>
-      <LabelExampleRibbon />
-    </div>
+    <ThemeSelector>
+      <div>
+        <Header as="h1">Labels</Header>
+        <Divider />
+        <Header as="h4">Tag</Header>
+        <LabelExampleTag />
+        <Header as="h4">Tag group</Header>
+        <LabelExampleGroupTag />
+        <Header as="h4">Pointing</Header>
+        <LabelExamplePointing />
+        <Header as="h4">Floating</Header>
+        <LabelExampleFloating />
+        <Header as="h4">Ribbon</Header>
+        <LabelExampleRibbon />
+      </div>
+    </ThemeSelector>
   );
 });

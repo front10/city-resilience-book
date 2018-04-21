@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Card, Icon, Header, Button, Image, Divider, Feed } from 'semantic-ui-react';
-import 'semantic-ui/dist/semantic.css';
+import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import lenaImageFile from '../../../../assets/images/avatar/small/lena.png';
 import matthewImageFile from '../../../../assets/images/avatar/small/matthew.png';
 import lindsayImageFile from '../../../../assets/images/avatar/small/lindsay.png';
@@ -143,15 +143,17 @@ const CardExampleContentBlock = () => (
 
 storiesOf('Elements/Cards', module).add('Simple', () => {
   return (
-    <div>
-      <Header as="h1">Card</Header>
-      <Divider />
-      <Header as="h3">Simple</Header>
-      <CardExampleCard />
-      <Header as="h3">Groups</Header>
-      <CardExampleGroups />
-      <Header as="h3">Content Block</Header>
-      <CardExampleContentBlock />
-    </div>
+    <ThemeSelector>
+      <div>
+        <Header as="h1">Card</Header>
+        <Divider />
+        <Header as="h3">Simple</Header>
+        <CardExampleCard />
+        <Header as="h3">Groups</Header>
+        <CardExampleGroups />
+        <Header as="h3">Content Block</Header>
+        <CardExampleContentBlock />
+      </div>
+    </ThemeSelector>
   );
 });

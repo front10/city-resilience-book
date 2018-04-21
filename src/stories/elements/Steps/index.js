@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import 'semantic-ui/dist/semantic.css';
+import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import { Header, Divider, Icon, Step, Segment, Image } from 'semantic-ui-react';
 
 import imageFile from '../../../../assets/images/wireframe/paragraph.png';
@@ -118,17 +118,19 @@ const StepExampleAttached = () => (
 
 storiesOf('Elements/Steps', module).add('All', () => {
   return (
-    <div>
-      <Header as="h1">Step</Header>
-      <Divider />
-      <Header as="h4">Group</Header>
-      <StepExampleGroup />
-      <Header as="h4">Ordered</Header>
-      <StepExampleOrdered />
-      <Header as="h4">Vertical</Header>
-      <StepExampleVertical />
-      <Header as="h4">Attached</Header>
-      <StepExampleAttached />
-    </div>
+    <ThemeSelector>
+      <div>
+        <Header as="h1">Step</Header>
+        <Divider />
+        <Header as="h4">Group</Header>
+        <StepExampleGroup />
+        <Header as="h4">Ordered</Header>
+        <StepExampleOrdered />
+        <Header as="h4">Vertical</Header>
+        <StepExampleVertical />
+        <Header as="h4">Attached</Header>
+        <StepExampleAttached />
+      </div>
+    </ThemeSelector>
   );
 });

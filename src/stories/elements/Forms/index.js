@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import 'semantic-ui/dist/semantic.css';
+import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import { Button, Checkbox, Form, Input, Radio, Select, TextArea, Header, Divider, Message } from 'semantic-ui-react';
 
 
@@ -79,17 +79,19 @@ const FormExampleFieldError = () => (
 
 storiesOf('Elements/Forms', module).add('Simple', () => {
   return (
-    <div>
-      <Header as="h1">Forms</Header>
-      <Divider />
-      <Header as="h3">Simple</Header>
-      <FormExampleForm />
-      <Header as="h3">Custom Control</Header>
-      <FormExampleFieldControl />
-      <Header as="h3">Success</Header>
-      <FormExampleSuccess />
-      <Header as="h3">Field Error</Header>
-      <FormExampleFieldError />
-    </div>
+    <ThemeSelector>
+      <div>
+        <Header as="h1">Forms</Header>
+        <Divider />
+        <Header as="h3">Simple</Header>
+        <FormExampleForm />
+        <Header as="h3">Custom Control</Header>
+        <FormExampleFieldControl />
+        <Header as="h3">Success</Header>
+        <FormExampleSuccess />
+        <Header as="h3">Field Error</Header>
+        <FormExampleFieldError />
+      </div>
+    </ThemeSelector>
   );
 });

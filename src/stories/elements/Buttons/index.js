@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import 'semantic-ui/dist/semantic.css';
+import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import { Header, Divider, Button, Icon, Label } from 'semantic-ui-react';
 
 const ButtonExampleAnimated = () => (
@@ -114,19 +114,21 @@ const ButtonExampleLoading = () => (
 
 storiesOf('Elements/Buttons', module).add('All', () => {
   return (
-    <div>
-      <Header as="h1">Buttons</Header>
-      <Divider />
-      <Header as="h4">Animated</Header>
-      <ButtonExampleAnimated />
-      <Header as="h4">Labeled</Header>
-      <ButtonExampleLabeled />
-      <Header as="h4">Basic</Header>
-      <ButtonExampleBasic />
-      <Header as="h4">Group Icons</Header>
-      <ButtonExampleGroupIcon />
-      <Header as="h4">Loading</Header>
-      <ButtonExampleLoading />
-    </div>
+    <ThemeSelector>
+      <div>
+        <Header as="h1">Buttons</Header>
+        <Divider />
+        <Header as="h4">Animated</Header>
+        <ButtonExampleAnimated />
+        <Header as="h4">Labeled</Header>
+        <ButtonExampleLabeled />
+        <Header as="h4">Basic</Header>
+        <ButtonExampleBasic />
+        <Header as="h4">Group Icons</Header>
+        <ButtonExampleGroupIcon />
+        <Header as="h4">Loading</Header>
+        <ButtonExampleLoading />
+      </div>
+    </ThemeSelector>
   );
 });
