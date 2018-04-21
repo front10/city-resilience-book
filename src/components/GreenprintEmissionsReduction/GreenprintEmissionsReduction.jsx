@@ -2,70 +2,52 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PieChart, Pie } from 'recharts';
 import { Segment, Header, Grid, Column } from 'semantic-ui-react';
+import GreenprintEmissionsReductionLanguaje from './GreenprintEmissionsReductionLanguaje.js';
 import './style.scss';
 import { ResponsivePie } from '@nivo/pie';
+import LanguageSwitcher from '../../components/LanguageSwitcher';
 
 class GreenprintEmissionsReduction extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      selectedLanguage: this.props.selectedLanguage
     };
     this.formatData = this.formatData.bind(this);
   }
 
   componentDidMount() {
     this.formatData();
-
   }
 
   render() {
-    /*return (
-      <div className='GreenprintEmissionsReduction'>
-        <Segment attached className='GreenprintEmissionsReduction_Segment'>
-          <div>
-            <div>
-              <Header textAlign='center' className='GreenprintEmissionsReduction_Segment_Header' as='h2'>GreenPrint Emissions Reductions</Header>
-            </div>
-            <div>
-              <Header textAlign='center' className="GreenprintEmissionsReduction_Segment_Header" as='h5'>2015 Targets: 2.1 million metric tons of CO2e**</Header>
-            </div>
-            <div>
-              <Header textAlign='center' className="GreenprintEmissionsReduction_Segment_Header" as='h5'>(including 670,000 metric tons of CO2e from new CAFE* standars)</Header>
-            </div>
-          </div>
-          <div>
-            <Grid centered columns={2}>
-              <Grid.Column>
-                <PieChart width={800} height={400}>
-                  <Pie isAnimationActive={false} data={this.state.data} cx={200} cy={200} outerRadius={80} fill="#00b3a4" label={(item) => `${item.name}: ${item.value}`} />
-                </PieChart>
-              </Grid.Column>
-            </Grid>
-          </div>
-        </Segment>
-        <Segment attached inverted color='grey'>
-          <p>
-            *Corporate Average Fuel Economy (CAFE) Standars are gas mileage standars (in miles per gallon or MPG) for a manufacturer's passenger cards and light trucks sold in United States for a given model year. The purpose of CAFE is to reduce energy consumption by increasing the fuel economy of cars and light trucks. These standars, set by the federal government, were last undated in August 2012.
-          </p>
-          <p>
-            **Carbon Dioxide Equivalents(CO2e)
-          </p>
-        </Segment>
-      </div>
-    );*/
     return (
       <div className='GreenprintEmissionsReduction'>
+        <Grid>
+          <Grid.Column floated='right' width={4}>
+            <LanguageSwitcher className='GreenprintEmissionsReduction__LanguageSwitcher' floated='right' onLanguageChange={(language) => {
+              this.setState({ selectedLanguage: language });
+            }}>
+            </LanguageSwitcher>
+          </Grid.Column>
+        </Grid>
         <Segment attached className='GreenprintEmissionsReduction_Segment'>
           <div>
             <div>
-              <Header textAlign='center' className='GreenprintEmissionsReduction_Segment_Header' as='h2'>GreenPrint Emissions Reductions</Header>
+              <Header textAlign='center' className='GreenprintEmissionsReduction_Segment_Header' as='h2'>
+                {GreenprintEmissionsReductionLanguaje[this.state.selectedLanguage].grafTittle}
+              </Header>
             </div>
             <div>
-              <Header textAlign='center' className="GreenprintEmissionsReduction_Segment_Header" as='h5'>2015 Targets: 2.1 million metric tons of CO2e**</Header>
+              <Header textAlign='center' className="GreenprintEmissionsReduction_Segment_Header" as='h5'>
+                {GreenprintEmissionsReductionLanguaje[this.state.selectedLanguage].grafSubTittle}
+              </Header>
             </div>
             <div>
-              <Header textAlign='center' className="GreenprintEmissionsReduction_Segment_Header" as='h5'>(including 670,000 metric tons of CO2e from new CAFE* standars)</Header>
+              <Header textAlign='center' className="GreenprintEmissionsReduction_Segment_Header" as='h5'>
+                {GreenprintEmissionsReductionLanguaje[this.state.selectedLanguage].grafDetail}
+              </Header>
             </div>
           </div>
           <div className="GreenprintEmissionsReduction_Chart">
@@ -101,10 +83,10 @@ class GreenprintEmissionsReduction extends React.Component {
         </Segment>
         <Segment attached inverted color='grey'>
           <p>
-            *Corporate Average Fuel Economy (CAFE) Standars are gas mileage standars (in miles per gallon or MPG) for a manufacturer's passenger cards and light trucks sold in United States for a given model year. The purpose of CAFE is to reduce energy consumption by increasing the fuel economy of cars and light trucks. These standars, set by the federal government, were last undated in August 2012.
+            {GreenprintEmissionsReductionLanguaje[this.state.selectedLanguage].grafSummary1}
           </p>
           <p>
-            **Carbon Dioxide Equivalents(CO2e)
+            {GreenprintEmissionsReductionLanguaje[this.state.selectedLanguage].grafSummary2}
           </p>
         </Segment>
       </div>

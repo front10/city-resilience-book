@@ -17,12 +17,8 @@ const GET_EMISSIONS = gpl`{
   }
 }`;
 
+
 storiesOf('Components/Charts', module).add('Greenprint emissions reduction', () => {
-  /*return (
-    <ThemeSelector>
-      <GreenprintEmissionsReduction source={Readme} data={data} />
-    </ThemeSelector>
-  );*/
   return (<ApolloProvider client={client}>
     <Query query={GET_EMISSIONS}>
       {({ loading, error, data }) => {
@@ -31,7 +27,7 @@ storiesOf('Components/Charts', module).add('Greenprint emissions reduction', () 
         if (error) return `Error! ${error.message}`;
         return (
           <ThemeSelector>
-            <GreenprintEmissionsReduction source={Readme} data={getAllemissionsReduction} />
+            <GreenprintEmissionsReduction selectedLanguage='en' source={Readme} data={getAllemissionsReduction} />
           </ThemeSelector>
         );
       }}
