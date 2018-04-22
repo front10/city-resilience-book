@@ -71,7 +71,7 @@ class DisasterKitChecklist extends React.Component {
         }
         {
           showCheckList &&
-          <div className="ui list">
+          <div className="ui list checklist">
             {
               checkList && checkList.map(this.renderList)
             }
