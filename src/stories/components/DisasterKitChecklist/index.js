@@ -12,11 +12,26 @@ import Readme from '../../../components/DisasterKitChecklist/readme.md';
 import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 
 const GET_DISASTERSKIT = gpl`{
-    getAllDisasterKit {
-        id
-        name
+    getAllDisasterKit{
+      id
+      name{
+        code
+        value
+      }
     }
   }`;
+
+const titleText = [
+  {code:"es", value: 'Lista de verificación del kit de desastre'},
+  {code:"en", value: 'Disaster Kit Checklist'},
+  {code:"ke", value: 'Lis Twous Dezas'}
+];
+
+const textFooter = [
+  {code:"es", value: "Esta es una lista básica de artículos de emergencia. No olvide traer suministros médicos específicos para usted, su familia o mascotas. Ver la página anterior para recursos adicionales."},
+  {code:"en", value: "This is a basic list of emergency items. Don't forget to bring any specific medical supplies for you, your family or pets. See the previous page for additional resources."},
+  {code:"ke", value: "Sa a se yon lis debaz nan atik ijans. Pa bliye pote nenpòt materyèl espesifik medikal pou ou, fanmi ou oswa bèt kay. Gade paj anvan an pou resous adisyonèl"}
+];
 
 const stories = storiesOf('Components/Hurricane Kit/Disaster kit checklist Component', module);
 
@@ -30,8 +45,6 @@ stories.add('Default', () => {
         if (loading) return 'Loading...';
         if (error) return `Error! ${error.message}`;
         
-        const labelChecklist = 'Data disaster kit checklist';
-        const labelSelectedLanguage = 'Selected Language';
         const selectedLanguageDefault = "en";
         const labelShowHeader = 'Show Header';
         const showHeaderDefault = true;
@@ -41,9 +54,6 @@ stories.add('Default', () => {
         const showTitleIconDefault = true;
         const labelShowTitleText = 'Show Title Text';
         const showTitleTextDefault = true;
-        const labelTitleText = 'Title Text';
-        const titleTextDefault = "Disaster Kit Checklist";
-        const labelIcon = 'Icon';
         const iconDefault = "checked calendar";
         const labelShowLanguageDropdown = 'Show Language Dropdown';
         const showLanguageDropdownDefault = true;
@@ -55,35 +65,30 @@ stories.add('Default', () => {
         const showButtonDefault = true;
         const labelShowFooterText = 'Show footer text';
         const showFooterTextDefault = true;
-        const labelFooterText = 'Footer text';
-        const footerTextDefault = "This is a basic list of emergency items. Don't forget to bring any specific medical supplies for you, your family or pets. See the previous page for additional resources.";
-        const labelSponsorIcon = 'Sponsor icon link';
         const sponsorIconDefault = "https://res.cloudinary.com/front10/image/upload/t_media_lib_thumb/v1524326358/resilient-city/miami-dade_color.jpg";
-        const labelToSeeMore = 'See more link';
         const toSeeMoreDefault = "http://www.miamidade.gov/emergency/";
-        const labelButton = 'Button';
         const buttonTextDefault = "See more";
         return (
           <ThemeSelector>
             <DisasterKitChecklist 
               source={Readme}
               checkList={getAllDisasterKit}
-              selectedLanguage={text(labelSelectedLanguage,selectedLanguageDefault)}
+              selectedLanguage={selectedLanguageDefault}
               showHeader={boolean(labelShowHeader,showHeaderDefault)}
               showTitle={boolean(labelShowTitle,showTitleDefault)}
               showTitleIcon={boolean(labelShowTitleIcon,showTitleIconDefault)}
-              showTitleText={boolean(labelTitleText,showTitleTextDefault)}
-              titleText={text(labelTitleText,titleTextDefault)}
-              icon={text(labelIcon,iconDefault)}
+              showTitleText={boolean(labelShowTitleText,showTitleTextDefault)}
+              titleText={titleText}
+              icon={iconDefault}
               showLanguageDropdown={boolean(labelShowLanguageDropdown,showLanguageDropdownDefault)}
-              showCheckList={boolean(labelChecklist,showCheckListDefault)}
+              showCheckList={boolean(labelShowCheckList,showCheckListDefault)}
               showSponsorIcon={boolean(labelShowSponsorIcon,showSponsorIconDefault)}
               showButton={boolean(labelShowButton,showButtonDefault)}
-              showFooterText={boolean(labelFooterText,showFooterTextDefault)}
-              footerText={footerTextDefault}
+              showFooterText={boolean(labelShowFooterText,showFooterTextDefault)}
+              textFooter={textFooter}
               sponsorIcon={sponsorIconDefault}
-              toSeeMore={text(labelToSeeMore,toSeeMoreDefault)}
-              buttonText={text(labelButton,buttonTextDefault)}
+              toSeeMore={toSeeMoreDefault}
+              buttonText={buttonTextDefault}
             />
           </ThemeSelector>
         );

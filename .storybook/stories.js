@@ -15,6 +15,7 @@
   import '../src/stories/components/PhoneNumberWebsite/index';
   import '../src/stories/components/GreenprintEmissionsReduction/index';
   import '../src/stories/components/WatchesWarningsHuracane/index';
+  import '../src/stories/components/StayConnectedSign/index';
 
 
   // Elements
@@ -25,3 +26,4 @@
   import '../src/stories/elements/Cards/index';
   import '../src/stories/elements/Forms/index';
  
+  

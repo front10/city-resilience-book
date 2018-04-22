@@ -1,4 +1,4 @@
-const DisasterKitChecklistLanguage = {
+const StayConnectedSign = {
     es: {
         button: "Ver más"
     },
@@ -10,4 +10,4 @@ const DisasterKitChecklistLanguage = {
     }
 };
 
-export default DisasterKitChecklistLanguage;
+export default StayConnectedSign;

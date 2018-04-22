@@ -21,7 +21,7 @@ class WatchesWarningsHuracane extends React.Component {
                 <Segment>
                     {
                         this.props.showHeader &&
-                        <Grid centered columns={2} verticalAlign='middle' className="Segment_Header">
+                        <Grid columns={2} verticalAlign='middle' className="Segment_Header">
                             <Grid.Column floated='right' width={11}>
                                 {
                                     this.props.showTitle &&
@@ -62,32 +62,33 @@ class WatchesWarningsHuracane extends React.Component {
                         </Grid>
                     }
                     <div className={'WatchesWarningsHuracane__container'}>
-                        <Grid centered columns={2} verticalAlign='middle'>
-                            <Grid.Column floated='left' width={4}>
+                        <Grid columns={1} verticalAlign='middle'>
+                            <Grid.Column width={16}>
                                 {
                                     this.props.bodyImages.map((image, index) => {
-                                        return (<Image src={image.src} size='small'
+                                        return (<Image src={image.src} size='huge' className="WatchesWarningsHuracane__container__image"
                                             key={`bodyImages__${this.props.type}__${index}`} />);
                                     })
                                 }
                             </Grid.Column>
-                            <Grid.Column floated='left' width={12}>
-                                <List>
-                                    <List.Item as='a'>
-                                        <List.Content>
-                                            <Header size='huge'
-                                                className={_class}>{this.state.translated.title}</Header>
-                                            <List.Description>
-                                                {this.state.translated.bodyText}
-                                            </List.Description>
-                                        </List.Content>
-                                    </List.Item>
-                                </List>
+                        </Grid>
+                        <Grid columns={1} verticalAlign='middle'>
+                            <Grid.Column width={16}>
+                                <Segment className="Segment__alert">
+                                    <List >
+                                        <List.Item as='a'>
+                                            <List.Content>
+                                                <Header size='huge'
+                                                    className={_class}>{this.state.translated.title}</Header>
+                                                <List.Description>
+                                                    {this.state.translated.bodyText}
+                                                </List.Description>
+                                            </List.Content>
+                                        </List.Item>
+                                    </List>
+                                </Segment>
                             </Grid.Column>
                         </Grid>
-                    </div>
-                    <div className={'WatchesWarningsHuracane__summary'}>
-                        {this.props.summary}
                     </div>
                     <Grid centered columns={2} verticalAlign='middle' className={'WatchesWarningsHuracane__buttons'}>
                         {
