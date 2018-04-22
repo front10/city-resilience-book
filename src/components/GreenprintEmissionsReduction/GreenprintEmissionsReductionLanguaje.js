@@ -13,7 +13,7 @@ const GreenprintEmissionsReductionLanguaje = {
         grafSummary1: "*Corporate Average Fuel Economy (CAFE) Standars are gas mileage standars (in miles per gallon or MPG) for a manufacturer's passenger cards and light trucks sold in United States for a given model year. The purpose of CAFE is to reduce energy consumption by increasing the fuel economy of cars and light trucks. These standars, set by the federal government, were last undated in August 2012.",
         grafSummary2: "**Carbon Dioxide Equivalents(CO2e)"
     },
-    ht: {
+    ke: {
         grafTittle: 'GreenPrint emisyon rediksyon',
         grafSubTittle: '2015 Objektif: 2.1 milyon tòn metrik CO2e **',
         grafDetail: '(ki gen ladan 670.000 tòn metrik CO2e ki soti nan nouvo CAFE * estanda)',

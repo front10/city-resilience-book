@@ -1,0 +1,29 @@
+.resourcesMappping{
+    .resourcesMappping__segment{
+        height: 400px;
+        .resourcesMappping__segment__mapContainer{
+            height: 100%;
+        }
+    }
+}
+
+.google-map{
+    .fa-car,
+    .fa-shopping-basket,
+    .fa-h-square,
+    .fa-shopping-cart {
+        font-size: 0.5em !important;
+        color:#EF341A !important;
+    }
+    .fa-2x{
+        font-size: 1em !important;
+        color:black!important;
+    }
+}
+
+.resourcesMappping__header{
+    .search{
+        max-width: 15em;
+        float: right;
+    }
+}

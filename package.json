@@ -1,5 +1,5 @@
 {
-  "name": "@front10/component-explorer",
+  "name": "@front10/hurricane-book",
   "version": "1.0.0",
   "description": "Base component explorer to be used as a boilerplate",
   "main": "index.js",
@@ -8,26 +8,27 @@
     "build-storybook": "build-storybook -c .storybook -o public -s ./assets",
     "test": "jest --config ./jest.config.js",
     "eslint": "./node_modules/.bin/eslint ./src",
-    "precommit": "npm run eslint",
     "gitlab-pages": "git checkout gitlab-pages && git merge master && npm run build-storybook && git add . && git commit -am \"Deploy to gitlab pages\" && git pull origin gitlab-pages && git push origin gitlab-pages && git checkout master"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/front10/component-explorer.git"
+    "url": "git+https://github.com/front10/resilience-city-book"
   },
   "keywords": [
-    "component-explorer",
+    "hurricane-book",
     "react"
   ],
   "author": "devs@front10.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/front10/component-explorer/issues"
+    "url": "https://github.com/front10/resilience-city-book/issues"
   },
-  "homepage": "https://gitlab.com/front10/component-explorer#README",
+  "homepage": "https://github.com/front10/resilience-city-book#README",
   "devDependencies": {
     "@storybook/addon-centered": "^3.3.12",
+    "@storybook/addon-knobs": "^3.4.2",
     "@storybook/addon-viewport": "^3.3.12",
+    "@storybook/addons": "^3.4.2",
     "@storybook/react": "^3.3.11",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
@@ -48,18 +49,22 @@
     "jest": "^22.4.3",
     "react-remarkable": "^1.1.3",
     "react-test-renderer": "^16.3.2",
-    "regenerator-runtime": "^0.11.1"
+    "regenerator-runtime": "^0.11.1",
+    "storybook-readme": "^3.3.0"
   },
   "dependencies": {
-    "@kadira/storybook-addon-knobs": "^1.7.1",
+    "@fortawesome/fontawesome": "^1.1.5",
+    "@fortawesome/fontawesome-free-solid": "^5.0.10",
+    "@fortawesome/react-fontawesome": "^0.0.18",
     "@kadira/storybook-addon-options": "^1.0.2",
-    "@kadira/storybook-addons": "^1.6.1",
     "@nivo/pie": "^0.33.0",
     "@storybook/addon-options": "^3.3.12",
     "apollo-boost": "^0.1.4",
     "apollo-client": "^2.2.8",
     "css-loader": "^0.28.9",
+    "font-awesome": "^4.7.0",
     "github-markdown-css": "^2.10.0",
+    "google-map-react": "^0.34.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.1",
     "highlight.js": "^9.12.0",
@@ -68,6 +73,7 @@
     "react": "^16.2.0",
     "react-apollo": "^2.1.3",
     "react-dom": "^16.2.0",
+    "react-google-maps": "^9.4.5",
     "react-markdown": "^3.1.5",
     "recharts": "^1.0.0-beta.10",
     "sass-loader": "^6.0.6",

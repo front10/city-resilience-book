@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import { Header, Divider, Button, Icon, Label } from 'semantic-ui-react';
+import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 
 const ButtonExampleAnimated = () => (
   <div>

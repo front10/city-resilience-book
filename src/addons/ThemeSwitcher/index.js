@@ -1,17 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import addons from '@storybook/addons';
 
+/* eslint-disable */
 export class ThemeSelector extends React.Component {
-    render() {
-        const {
-            children
-        } = this.props;
-        const channel = addons.getChannel();
-
-        channel.emit('theme/switch');
-        return children;
-    }
-
     componentDidMount() {
         this.init();
     }
@@ -24,7 +16,7 @@ export class ThemeSelector extends React.Component {
             let link = document.createElement("link");
             link.setAttribute("type", "text/css");
             link.setAttribute("rel", "stylesheet");
-            link.setAttribute("href", "/themes/default/semantic.css");
+            link.setAttribute("href", "/themes/miamidade/semantic.css");
             link.setAttribute("id", "story-book-themes");
             link.onload = function () {
                 root.style.display = "block";
@@ -32,4 +24,22 @@ export class ThemeSelector extends React.Component {
             document.head.appendChild(link);
         }
     }
+
+    render() {
+        const {
+            children
+        } = this.props;
+        const channel = addons.getChannel();
+
+        channel.emit('theme/switch');
+        return children;
+    }
 }
+
+ThemeSelector.propTypes = {
+    children: PropTypes.any
+  };
+  
+  ThemeSelector.defaultProps = {
+    children: ''
+  };

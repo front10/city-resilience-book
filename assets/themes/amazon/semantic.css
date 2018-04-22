@@ -39798,3 +39798,12 @@ body.pushable > .pusher {
 /*******************************
          Site Overrides
 *******************************/
+
+.resourcesMappping .resourcesMappping__header{
+  background-color: #fea82a;
+  color: white;
+}
+
+.resourcesMappping .resourcesMappping__header .resourcesMappping__header__title{
+  color: white;
+}

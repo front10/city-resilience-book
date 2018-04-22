@@ -1,0 +1,21 @@
+.PhoneNumberWebsite{
+    .PhoneNumberWebsite__segment{
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .PhoneNumberWebsite__seeMoreContainer{
+        text-align: right !important;
+    }
+
+    .PhoneNumberWebsite_listItemHeader{
+        color: #EF341A !important;
+        margin-top: 0.6rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+    .PhoneNumberWebsite_listItemHeader_url {
+        font-weight: bold !important; 
+    }
+    .PhoneNumberWebsite_listItemIcon{
+        transform: rotate(90deg)!important;
+    }
+}

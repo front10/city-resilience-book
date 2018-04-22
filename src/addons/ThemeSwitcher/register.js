@@ -10,22 +10,9 @@ const styles = {
 class Notes extends React.Component {
   constructor(...args) {
     super(...args);
-    this.state = { theme: 'default' };
+    this.state = { theme: 'miamidade' };
     this.changeTheme = this.changeTheme.bind(this);
-  }
-
-  render() {
-    return (
-      <div style={styles}>
-        <Button.Group vertical labeled icon fluid>
-          <Button basic content='Default' active={this.state.theme === 'default'} onClick={this.changeTheme} />
-          <Button basic content='Amazon' active={this.state.theme === 'amazon'} onClick={this.changeTheme} />
-          <Button basic content='Material' active={this.state.theme === 'material'} onClick={this.changeTheme} />
-          <Button basic content='Chubby' active={this.state.theme === 'chubby'} onClick={this.changeTheme} />
-        </Button.Group>
-      </div>
-    );
-  }
+  }  
 
   changeTheme = ($event, data) => {
     let iframe = document.getElementById("storybook-preview-iframe");
@@ -56,15 +43,30 @@ class Notes extends React.Component {
       }
     }
   }
+
+  render() {
+    return (
+      <div style={styles}>
+        <Button.Group vertical labeled icon fluid>
+          <Button basic content='Default' active={this.state.theme === 'default'} onClick={this.changeTheme} />
+          <Button basic content='MiamiDade' active={this.state.theme === 'miamidade'} onClick={this.changeTheme} />
+          <Button basic content='Broward' active={this.state.theme === 'broward'} onClick={this.changeTheme} />
+          <Button basic content='Amazon' active={this.state.theme === 'amazon'} onClick={this.changeTheme} />
+        </Button.Group>  
+      </div>
+    );
+  }
 }
 
 // Register the addon with a unique name.
 addons.register('theme/switcher', (api) => {
+  const notesLocal = <Notes channel={addons.getChannel()} api={api} />;
   // Also need to set a unique name to the panel.
+  const NotesLocal = <Notes channel={addons.getChannel()} api={api} />;
   addons.addPanel('theme/switcher/panel', {
     title: 'Themes',
     render: () => (
-      <Notes channel={addons.getChannel()} api={api} />
+      notesLocal
     ),
   });
 });

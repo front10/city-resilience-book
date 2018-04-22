@@ -1,8 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import { Header, Divider, Icon, Step, Segment, Image } from 'semantic-ui-react';
-
+import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import imageFile from '../../../../assets/images/wireframe/paragraph.png';
 
 const StepExampleGroup = () => (

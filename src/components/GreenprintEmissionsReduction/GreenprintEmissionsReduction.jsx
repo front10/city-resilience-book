@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PieChart, Pie } from 'recharts';
 import { Segment, Header, Grid, Column } from 'semantic-ui-react';
-import GreenprintEmissionsReductionLanguaje from './GreenprintEmissionsReductionLanguaje.js';
-import './style.scss';
 import { ResponsivePie } from '@nivo/pie';
+import GreenprintEmissionsReductionLanguaje from './GreenprintEmissionsReductionLanguaje';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
+import './style.scss';
 
 class GreenprintEmissionsReduction extends React.Component {
   constructor(props) {
@@ -21,17 +21,32 @@ class GreenprintEmissionsReduction extends React.Component {
     this.formatData();
   }
 
+  formatData() {
+    let data = this.props.data.map(item => {
+      return { ...item, label: item.name, id: item.name }
+    });
+    this.setState({ data: data });
+  }
+
   render() {
     return (
       <div className='GreenprintEmissionsReduction'>
-        <Grid>
-          <Grid.Column floated='right' width={4}>
-            <LanguageSwitcher className='GreenprintEmissionsReduction__LanguageSwitcher' floated='right' onLanguageChange={(language) => {
-              this.setState({ selectedLanguage: language });
-            }}>
-            </LanguageSwitcher>
-          </Grid.Column>
-        </Grid>
+        {
+          this.props.showLanguageDropdown &&
+          <Segment attached className='GreenprintEmissionsReduction_Segment Segment_Header'>
+            <Grid>
+              <Grid.Column floated='right' width={4}>
+                <LanguageSwitcher
+                  className='GreenprintEmissionsReduction__LanguageSwitcher'
+                  floated='right'
+                  onLanguageChange={(language) => {
+                    this.setState({ selectedLanguage: language });
+                  }}
+                />
+              </Grid.Column>
+            </Grid>
+          </Segment>
+        }
         <Segment attached className='GreenprintEmissionsReduction_Segment'>
           <div>
             <div>
@@ -74,7 +89,7 @@ class GreenprintEmissionsReduction extends React.Component {
               radialLabelsLinkColor="inherit"
               slicesLabelsSkipAngle={10}
               slicesLabelsTextColor="#333333"
-              animate={true}
+              animate="true"
               motionStiffness={90}
               motionDamping={15}
               legends={[]}
@@ -92,13 +107,18 @@ class GreenprintEmissionsReduction extends React.Component {
       </div>
     );
   }
+}
 
-  formatData() {
-    let data = this.props.data.map(item => {
-      return { ...item, label: item.name, id: item.name }
-    });
-    this.setState({ data: data });
-  }
+GreenprintEmissionsReduction.propTypes = {
+  data: PropTypes.array,
+  showLanguageDropdown: PropTypes.bool,
+  selectedLanguage: PropTypes.string
+};
+
+GreenprintEmissionsReduction.defaultProps = {
+  data: [],
+  showLanguageDropdown: true,
+  selectedLanguage: "en"
 }
 
 export default GreenprintEmissionsReduction;

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import { Button, Checkbox, Form, Input, Radio, Select, TextArea, Header, Divider, Message } from 'semantic-ui-react';
-
+import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 
 const options = [
   { key: 'm', text: 'Male', value: 'male' },

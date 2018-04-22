@@ -1,8 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import { Header, Button, Icon, Image, Rating, Divider, Checkbox, Table } from 'semantic-ui-react';
-
+import { ThemeSelector } from "../../../addons/ThemeSwitcher";
 import lenaImageFile from '../../../../assets/images/avatar/small/lena.png';
 import matthewImageFile from '../../../../assets/images/avatar/small/matthew.png';
 import lindsayImageFile from '../../../../assets/images/avatar/small/lindsay.png';
@@ -89,7 +88,6 @@ const TableExamplePadded = () => (
         </Table.Cell>
         <Table.Cell textAlign="right">
           80% <br />
-          <a href="#">18 studies</a>
         </Table.Cell>
         <Table.Cell>
           Creatine supplementation is the reference compound.
@@ -105,7 +103,6 @@ const TableExamplePadded = () => (
         </Table.Cell>
         <Table.Cell textAlign="right">
           100% <br />
-          <a href="#">65 studies</a>
         </Table.Cell>
         <Table.Cell>
           Creatine is the reference compound for power improvement.
