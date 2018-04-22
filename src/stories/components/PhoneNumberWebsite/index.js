@@ -13,8 +13,14 @@ import { client } from '../../../../storybook-utils/configs/apolloClient';
 const GET_PHONEWEPSITE = gpl`{
     getAllPhoneWebsite {
         id
-        name
-        value
+        name {
+          code
+          value
+        }
+        value {
+          code
+          value
+        }
         phone
         tty
         url

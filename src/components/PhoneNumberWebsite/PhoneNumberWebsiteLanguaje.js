@@ -9,7 +9,7 @@ const ResourcesMappingLanguaje = {
         mapDetail: 'Details of X',
         buttonSeemore: 'See more',
     },
-    ht: {
+    ke: {
         mapTittle: 'Nimewo telefòn ak sit entènèt.',
         mapDetail: 'detay sou x',
         buttonSeemore: 'Gade plis',

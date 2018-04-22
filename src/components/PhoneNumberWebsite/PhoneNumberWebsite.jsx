@@ -10,19 +10,37 @@ class PhoneNumberWebsite extends React.Component {
         super(props);
         this.state = {
             selectedLanguage: this.props.selectedLanguage,
+            translated: {}
         }
     }
     render() {
-        const { toSeeMore, resourcess } = this.props
+        const { toSeeMore, resourcess,sponsorIcon } = this.props
         const firsList = resourcess.slice(0, (resourcess.length / 2));
-        const secondList = resourcess.slice((resourcess.length / 2)+1);
-        console.log('first', firsList);
-        console.log('second', secondList);
+        const secondList = resourcess.slice((resourcess.length / 2) + 1);
+
+        let translate = {
+            static: PhoneNumberWebsiteLanguaje,
+            content: {
+              
+            }
+          };
+          firsList.map((item, index) => {
+            translate.content["value_firsList_name" + index] = item.name;
+            translate.content["value_firsList_value" + index] = item.value;
+            return item;
+          });
+          secondList.map((item, index) => {
+            translate.content["value_secondList_name" + index] = item.name;
+            translate.content["value_secondList_value" + index] = item.value;
+            return item;
+          });
+          console.log("ranslate", translate);
 
         return <div className="PhoneNumberWebsite">
             <Segment.Group>
+
                 <Segment>
-                    <Grid stackable columns={2} verticalAlign='middle'>
+                    <Grid columns={1} verticalAlign='middle' className="Segment_Header">
                         <Grid.Column>
                             <Header as='h2' className="resourcesMappping__header__title">
                                 <Icon name='superpowers' />
@@ -32,16 +50,16 @@ class PhoneNumberWebsite extends React.Component {
                             </Header>
                         </Grid.Column>
                     </Grid>
-                    <Grid stackable columns={1} verticalAlign='middle'>
-                        <Grid.Column floated='left' width={5}>
-                        </Grid.Column>
+                    <Grid columns={1} verticalAlign='middle'>
                         <Grid.Column floated='right' width={5}>
-                            <LanguageSwitcher
-                                floated='right'
-                                onLanguageChange={(language) => {
-                                    this.setState({ selectedLanguage: language });
-                                }}
-                            />
+                        <LanguageSwitcher
+                            floated='right'
+                            translate={translate}
+                            onLanguageChange={(language, translated) => {
+                            this.setState({ selectedLanguage: language });
+                            this.setState({translated: translated});
+                            }}
+                        />
                         </Grid.Column>
                     </Grid>
 
@@ -54,10 +72,10 @@ class PhoneNumberWebsite extends React.Component {
                                         {
                                             firsList.map((item, i) => {
                                                 return <List.Item key={i}>
-                                                    <List.Header className="PhoneNumberWebsite_listItemHeader">{item.name}</List.Header>
+                                                    <List.Header className="PhoneNumberWebsite_listItemHeader">{this.state.translated["value_firsList_name" + i]}</List.Header>
                                                     {item.phone && <List.Icon name='phone' className="PhoneNumberWebsite_listItemIcon" />}
-                                                    {item.phone && <a href={`tel:${item.phone}`}>{item.phone}</a>}
-                                                    {item.value && <List.Content> {item.value}</List.Content>}
+                                                    {item.phone && <List.Content><a href={`tel:${item.phone}`}>{item.phone}</a></List.Content>}
+                                                    {item.value && <List.Content> {this.state.translated["value_firsList_value" + i]}</List.Content>}
                                                     {item.tty && <List.Content>TTY:{item.tty}</List.Content>}
                                                     {item.url && <List.Content className="PhoneNumberWebsite_listItemHeader_url"> {item.url}</List.Content>}
                                                 </List.Item>
@@ -72,10 +90,10 @@ class PhoneNumberWebsite extends React.Component {
                                         {
                                             secondList.map((item, i) => {
                                                 return <List.Item key={i}>
-                                                    <List.Header className="PhoneNumberWebsite_listItemHeader">{item.name}</List.Header>
+                                                    <List.Header className="PhoneNumberWebsite_listItemHeader">{this.state.translated["value_secondList_name" + i]}</List.Header>
                                                     {item.phone && <List.Icon name='phone' className="PhoneNumberWebsite_listItemIcon" />}
-                                                    {item.phone && <a href={`tel:${item.phone}`}>{item.phone}</a>}
-                                                    {item.value && <List.Content> {item.value}</List.Content>}
+                                                    {item.phone && <List.Content><a href={`tel:${item.phone}`}>{item.phone}</a></List.Content>}
+                                                    {item.value && <List.Content> {this.state.translated["value_secondList_value" + i]}</List.Content>}
                                                     {item.tty && <List.Content>TTY:{item.tty}</List.Content>}
                                                     {item.url && <List.Content className="PhoneNumberWebsite_listItemHeader_url"> {item.url}</List.Content>}
                                                 </List.Item>
@@ -87,11 +105,15 @@ class PhoneNumberWebsite extends React.Component {
                         </Grid.Row>
                     </Grid>
 
-                    <Grid stackable columns={1} verticalAlign='middle'>
+                    <Grid centered columns={2} verticalAlign='middle'>
                         <Grid.Column floated='left' width={5}>
-                            <Image src='https://res.cloudinary.com/front10/image/upload/t_media_lib_thumb/v1524326358/resilient-city/miami-dade_color.jpg' size='small' />
+                            <div className="ui small image">
+                                <svg width="100" height="100">
+                                    <image xlinkHref={sponsorIcon} x="0" y="0" width="100%" height="100%" />
+                                </svg>
+                            </div>
                         </Grid.Column>
-                        <Grid.Column floated='right' width={5} className="PhoneNumberWebsite__seeMoreContainer">
+                        <Grid.Column floated='right' width={5} className="see-more-button-wrapper">
                             <a href={toSeeMore} className="ui button">{PhoneNumberWebsiteLanguaje[this.state.selectedLanguage].buttonSeemore}</a>
                         </Grid.Column>
                     </Grid>
@@ -108,7 +130,8 @@ PhoneNumberWebsite.propTypes = {
 PhoneNumberWebsite.defaultProps = {
     selectedLanguage: 'en',
     toSeeMore: 'http://www.miamidade.gov/emergency/',
-    resources: []
+    resources: [],
+    sponsorIcon: "https://res.cloudinary.com/front10/image/upload/t_media_lib_thumb/v1524326358/resilient-city/miami-dade_color.jpg",
 };
 
 export default PhoneNumberWebsite;
